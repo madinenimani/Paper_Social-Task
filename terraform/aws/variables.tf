@@ -5,6 +5,6 @@ variable "instance_type" {
 variable "key_name" {
   default = "demo-key"
 }
-variable "ami_id"{
+variable "ami"{
   default = "ami-06b6e5225d1db5f46"
 }
