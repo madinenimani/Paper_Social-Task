@@ -1,5 +1,5 @@
 resource "aws_instance" "web" {
-  ami           = "ami-0c94855ba95c71c99"
+  ami           = var.ami_id
   instance_type = var.instance_type
   key_name      = var.key_name
   tags = {

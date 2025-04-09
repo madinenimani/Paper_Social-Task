@@ -3,5 +3,8 @@ variable "instance_type" {
 }
 
 variable "key_name" {
-  default = "your-key"
+  default = "demo-key"
+}
+variable "ami_id"{
+  default = "ami-06b6e5225d1db5f46"
 }
