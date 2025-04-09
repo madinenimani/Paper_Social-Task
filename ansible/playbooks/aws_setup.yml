@@ -1,0 +1,29 @@
+- name: Configure AWS EC2 Instance
+  hosts: aws
+  become: yes
+  tasks:
+    - name: Install Docker
+      amazon.aws.package:
+        name: docker
+        state: present
+
+    - name: Start Docker service
+      service:
+        name: docker
+        state: started
+        enabled: true
+
+    - name: Install Git
+      yum:
+        name: git
+        state: present
+
+    - name: Pull and run app container
+      docker_container:
+        name: papersocial-app
+        image: nginx:alpine
+        state: started
+        ports:
+          - "80:80"
+        volumes:
+          - "{{ playbook_dir }}/../../app/index.html:/usr/share/nginx/html/index.html:ro"
