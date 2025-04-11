@@ -19,3 +19,11 @@ module "ec2_instance" {
   key_name      = var.key_name
   ami = var.ami
 }
+
+terraform {
+  backend "s3" {
+    bucket = "paper-state-file-terraform"
+    key    = "terraform.tfstate"
+    region = "ap-south-1"
+  }
+}
